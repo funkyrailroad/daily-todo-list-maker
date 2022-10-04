@@ -30,7 +30,6 @@ class WeeklyFrequency(Frequency):
 
     def __init__(self, day):
         self.day = day
-        pass
 
     def do_on_day(self, day):
         return day.weekday() == self.day
