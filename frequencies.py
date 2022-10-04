@@ -19,11 +19,16 @@ class DailyFrequency:
     def __init__(self, n):
         self.n = n
 
-    def do_today(self, today):
-        """Determine if the activity should be done today"""
+    def do_on_day(self, day):
+        """Determine if the activity should be done on a given day."""
         start = get_days_since_epoch()
-        days_elapsed = (today - start).days
+        days_elapsed = (day - start).days
         return  days_elapsed % self.n
+
+    def do_today(self):
+        """Determine if the activity should be done today."""
+        return self.do_on_day(dt.date.today())
+
 
 
 def get_days_since_epoch():
