@@ -41,7 +41,7 @@ class DailyFrequency:
         """Determine if the activity should be done on a given day."""
         start = get_days_since_epoch()
         days_elapsed = (day - start).days
-        return days_elapsed % self.n
+        return not (days_elapsed % self.n)
 
     def do_today(self):
         """Determine if the activity should be done today."""

@@ -21,6 +21,19 @@ class Tests(unittest.TestCase):
         self.saturday = dt.date(2022, 10, 8)
         self.sunday = dt.date(2022, 10, 9)
 
+    def test_every_day_frequency(self):
+        freq = self.every_day_freq
+
+        self.assertTrue(freq.do_today())
+        self.assertTrue(freq.do_on_day(self.tomorrow))
+        self.assertTrue(freq.do_on_day(self.monday))
+        self.assertTrue(freq.do_on_day(self.tuesday))
+        self.assertTrue(freq.do_on_day(self.wednesday))
+        self.assertTrue(freq.do_on_day(self.thursday))
+        self.assertTrue(freq.do_on_day(self.friday))
+        self.assertTrue(freq.do_on_day(self.saturday))
+        self.assertTrue(freq.do_on_day(self.sunday))
+
     def test_every_other_day_frequency(self):
         freq = self.every_other_freq
 
