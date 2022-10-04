@@ -19,6 +19,8 @@
     x apply lotion
     x practice drums
 """
+import datetime as dt
+
 import frequencies as f
 
 
@@ -87,3 +89,8 @@ class SundayTask(Task):
 
 def get_tasks_for_day(task_list, day):
     return list(filter(lambda x: x.do_on_day(day), task_list))
+
+
+def get_tasks_for_today(task_list):
+    today = dt.date.today()
+    return get_tasks_for_day(task_list, today)
