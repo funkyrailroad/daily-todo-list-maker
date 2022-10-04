@@ -34,3 +34,7 @@ class Task:
 
     def __repr__(self):
         return f"Name: {self.name}\nFreq:{self.frequency}"
+
+
+def get_tasks_for_day(task_list, day):
+    return list(filter(lambda x: x.do_on_day(day), task_list))

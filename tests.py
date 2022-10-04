@@ -1,5 +1,6 @@
 import datetime as dt
 import unittest
+from pprint import pprint
 
 import frequencies as f
 import main as m
@@ -65,3 +66,16 @@ class Tests(unittest.TestCase):
         do_tomorrow = task.do_on_day(self.tomorrow)
 
         self.assertNotEqual(do_today, do_tomorrow)
+
+    def test_1(self):
+        full_task_list = [
+            m.Task("Brush Teeth", self.every_day_freq),
+            m.Task("Play Drums", self.every_day_freq),
+            m.Task("Move car for street cleaning", self.wednesday_freq),
+        ]
+
+        tuesday_task_list = m.get_tasks_for_day(full_task_list, self.today)
+
+        wednesday_task_list = m.get_tasks_for_day(full_task_list, self.wednesday)
+
+        self.assertLess(len(tuesday_task_list), len(wednesday_task_list))
