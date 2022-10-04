@@ -1,20 +1,23 @@
 """
+- add typing to class definitions
 - generate a list of tasks that I should do today
-    - every day tasks
-    - tasks that should be done this day of the week
-    - tasks that should be done because it's the n-th day
+    x every day tasks
+    x tasks that should be done this day of the week
+    x tasks that should be done this day of the month
+    . tasks that should be done because it's the n-th day
 - come up with basic to do data structures
-    - recurring task
-        - name
-        - frequency
-            - every day
-            - which days of the week
-            - every n days
+    x recurring task
+        x name
+        x frequency
+            x every day
+            x which days of the week
+            x every n days
+            x which days of the month
 - make some example tasks
-    - make bed
-    - brush teeth
-    - apply lotion
-    - practice drums
+    x make bed
+    x brush teeth
+    x apply lotion
+    x practice drums
 """
 import frequencies as f
 
