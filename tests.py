@@ -53,6 +53,17 @@ class Tests(unittest.TestCase):
         self.assertEqual(self.saturday.weekday(), f.WeeklyFrequency.SATURDAY)
         self.assertEqual(self.sunday.weekday(), f.WeeklyFrequency.SUNDAY)
 
+    def test_monthly_frequency(self):
+        day_number = 4
+        freq = f.MonthlyFrequency(day_number)
+        for i in range(1, 31):
+            day = dt.date(2022, 11, i)
+            do_on_day = freq.do_on_day(day)
+            if i == day_number:
+                self.assertTrue(do_on_day)
+                continue
+            self.assertFalse(do_on_day)
+
     def test_weekday(self):
         do_tuesday = self.wednesday_freq.do_on_day(self.tuesday)
         self.assertFalse(do_tuesday)

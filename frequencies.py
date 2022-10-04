@@ -11,6 +11,14 @@ class Frequency(ABC):
         return self.do_on_day(dt.date.today())
 
 
+class MonthlyFrequency(Frequency):
+    def __init__(self, day_of_the_month):
+        self.day = day_of_the_month
+
+    def do_on_day(self, day):
+        return day.day == self.day
+
+
 class WeeklyFrequency(Frequency):
     MONDAY = 0
     TUESDAY = 1
