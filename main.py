@@ -38,8 +38,51 @@ class Task:
 
 
 class DailyTask(Task):
+
     def __init__(self, name):
         return super().__init__(name, f.DailyFrequency(1))
+
+
+class MondayTask(Task):
+
+    def __init__(self, name):
+        return super().__init__(name, f.WeeklyFrequency(0))
+
+
+class TuesdayTask(Task):
+
+    def __init__(self, name):
+        return super().__init__(name, f.WeeklyFrequency(1))
+
+
+class WednesdayTask(Task):
+
+    def __init__(self, name):
+        return super().__init__(name, f.WeeklyFrequency(2))
+
+
+class ThursdayTask(Task):
+
+    def __init__(self, name):
+        return super().__init__(name, f.WeeklyFrequency(3))
+
+
+class FridayTask(Task):
+
+    def __init__(self, name):
+        return super().__init__(name, f.WeeklyFrequency(4))
+
+
+class SaturdayTask(Task):
+
+    def __init__(self, name):
+        return super().__init__(name, f.WeeklyFrequency(5))
+
+
+class SundayTask(Task):
+
+    def __init__(self, name):
+        return super().__init__(name, f.WeeklyFrequency(6))
 
 
 def get_tasks_for_day(task_list, day):

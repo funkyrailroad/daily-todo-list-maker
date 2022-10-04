@@ -7,6 +7,7 @@ import main as m
 
 
 class Tests(unittest.TestCase):
+
     def setUp(self):
         self.today = dt.date.today()
         self.tomorrow = self.today + dt.timedelta(days=1)
@@ -71,15 +72,29 @@ class Tests(unittest.TestCase):
         task = m.DailyTask("Get outside")
         self.assertTrue(task.do_today())
 
+    def test_monday_task(self):
+        task = m.MondayTask("Push, legs, core workout")
+        self.assertTrue(task.do_on_day(self.monday))
+        self.assertFalse(task.do_on_day(self.tuesday))
+
+    def test_tuesday_task(self):
+        task = m.TuesdayTask("Functional, pull, forearm workout")
+        self.assertFalse(task.do_on_day(self.monday))
+        self.assertTrue(task.do_on_day(self.tuesday))
+
     def test_1(self):
         full_task_list = [
-            m.Task("Brush Teeth", self.every_day_freq),
-            m.Task("Play Drums", self.every_day_freq),
-            m.Task("Move car for street cleaning", self.wednesday_freq),
+            m.DailyTask("Brush Teeth"),
+            m.DailyTask("Apply Lotion"),
+            m.DailyTask("Go outside"),
+            m.DailyTask("Play Drums"),
+            m.DailyTask("Active Stretching"),
+            m.WednesdayTask("Move car for street cleaning"),
         ]
 
         tuesday_task_list = m.get_tasks_for_day(full_task_list, self.today)
 
-        wednesday_task_list = m.get_tasks_for_day(full_task_list, self.wednesday)
+        wednesday_task_list = m.get_tasks_for_day(full_task_list,
+                                                  self.wednesday)
 
         self.assertLess(len(tuesday_task_list), len(wednesday_task_list))
