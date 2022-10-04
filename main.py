@@ -1,5 +1,8 @@
-
-'''
+"""
+- generate a list of tasks that I should do today
+    - every day tasks
+    - tasks that should be done this day of the week
+    - tasks that should be done because it's the n-th day
 - come up with basic to do data structures
     - recurring task
         - name
@@ -7,16 +10,12 @@
             - every day
             - which days of the week
             - every n days
-- generate a list of tasks that I should do today
-    - every day tasks
-    - tasks that should be done this day of the week
-    - tasks that should be done because it's the n-th day
 - make some example tasks
     - make bed
     - brush teeth
     - apply lotion
     - practice drums
-'''
+"""
 
 
 class Task:
