@@ -4,16 +4,14 @@ from abc import ABC, abstractmethod
 
 class Frequency(ABC):
     @abstractmethod
-    def do_today(today):
-        """Determine if the activity should be done today"""
-        pass
-
-    @abstractmethod
     def do_on_day(day):
         pass
 
+    def do_today(self):
+        return self.do_on_day(dt.date.today())
 
-class WeeklyFrequency:
+
+class WeeklyFrequency(Frequency):
     MONDAY = 0
     TUESDAY = 1
     WEDNESDAY = 2
@@ -29,11 +27,8 @@ class WeeklyFrequency:
     def do_on_day(self, day):
         return day.weekday() == self.day
 
-    def do_today(self):
-        return self.do_on_day(dt.date.today())
 
-
-class DailyFrequency:
+class DailyFrequency(Frequency):
     def __init__(self, n):
         self.n = n
 
@@ -42,10 +37,6 @@ class DailyFrequency:
         start = get_days_since_epoch()
         days_elapsed = (day - start).days
         return not (days_elapsed % self.n)
-
-    def do_today(self):
-        """Determine if the activity should be done today."""
-        return self.do_on_day(dt.date.today())
 
 
 def get_days_since_epoch():
