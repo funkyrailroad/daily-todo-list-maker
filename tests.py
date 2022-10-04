@@ -6,7 +6,6 @@ import main as m
 
 
 class Tests(unittest.TestCase):
-
     def setUp(self):
         self.today = dt.date.today()
         self.tomorrow = self.today + dt.timedelta(days=1)
