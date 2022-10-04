@@ -67,6 +67,10 @@ class Tests(unittest.TestCase):
 
         self.assertNotEqual(do_today, do_tomorrow)
 
+    def test_daily_task(self):
+        task = m.DailyTask("Get outside")
+        self.assertTrue(task.do_today())
+
     def test_1(self):
         full_task_list = [
             m.Task("Brush Teeth", self.every_day_freq),

@@ -16,6 +16,7 @@
     - apply lotion
     - practice drums
 """
+import frequencies as f
 
 
 class Task:
@@ -34,6 +35,11 @@ class Task:
 
     def __repr__(self):
         return f"Name: {self.name}\nFreq:{self.frequency}"
+
+
+class DailyTask(Task):
+    def __init__(self, name):
+        return super().__init__(name, f.DailyFrequency(1))
 
 
 def get_tasks_for_day(task_list, day):
