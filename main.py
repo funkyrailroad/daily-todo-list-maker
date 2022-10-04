@@ -94,3 +94,17 @@ def get_tasks_for_day(task_list, day):
 def get_tasks_for_today(task_list):
     today = dt.date.today()
     return get_tasks_for_day(task_list, today)
+
+
+full_task_list = [
+    DailyTask("Make bed"),
+    DailyTask("Brush Teeth"),
+    DailyTask("Apply Lotion"),
+    DailyTask("Go outside"),
+    DailyTask("Play Drums"),
+    DailyTask("Active Stretching"),
+    MondayTask("Push, legs, core workout"),
+    WednesdayTask("Move car for street cleaning"),
+    MonthlyTask("Stocks", 1),
+    MonthlyTask("Stocks", 16),
+]

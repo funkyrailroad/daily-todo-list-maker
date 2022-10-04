@@ -94,18 +94,8 @@ class Tests(unittest.TestCase):
         self.assertTrue(task.do_on_day(self.tuesday))
 
     def test_1(self):
-        full_task_list = [
-            m.DailyTask("Brush Teeth"),
-            m.DailyTask("Apply Lotion"),
-            m.DailyTask("Go outside"),
-            m.DailyTask("Play Drums"),
-            m.DailyTask("Active Stretching"),
-            m.WednesdayTask("Move car for street cleaning"),
-        ]
 
-        tuesday_task_list = m.get_tasks_for_day(full_task_list, self.today)
-
-        wednesday_task_list = m.get_tasks_for_day(full_task_list,
-                                                  self.wednesday)
+        tuesday_task_list = m.get_tasks_for_day(m.full_task_list, self.tuesday)
+        wednesday_task_list = m.get_tasks_for_day(m.full_task_list, self.wednesday)
 
         self.assertLess(len(tuesday_task_list), len(wednesday_task_list))
