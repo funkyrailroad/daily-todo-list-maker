@@ -8,10 +8,29 @@ class Frequency(ABC):
         """Determine if the activity should be done today"""
         pass
 
+    @abstractmethod
+    def do_on_day(day):
+        pass
+
 
 class WeeklyFrequency:
+    MONDAY = 0
+    TUESDAY = 1
+    WEDNESDAY = 2
+    THURSDAY = 3
+    FRIDAY = 4
+    SATURDAY = 5
+    SUNDAY = 6
+
     def __init__(self, day):
+        self.day = day
         pass
+
+    def do_on_day(self, day):
+        return day.weekday() == self.day
+
+    def do_today(self):
+        return self.do_on_day(dt.date.today())
 
 
 class DailyFrequency:

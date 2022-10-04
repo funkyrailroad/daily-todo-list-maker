@@ -20,6 +20,17 @@ class Tests(unittest.TestCase):
 
         self.assertNotEqual(do_today, do_tomorrow)
 
+    def test_weekday(self):
+        wednesday_freq = f.WeeklyFrequency(f.WeeklyFrequency.WEDNESDAY)
+        tuesday = dt.date(2022, 10, 4)
+        wednesday = dt.date(2022, 10, 5)
+
+        do_tuesday = wednesday_freq.do_on_day(tuesday)
+        self.assertFalse(do_tuesday)
+
+        do_wednesday = wednesday_freq.do_on_day(wednesday)
+        self.assertTrue(do_wednesday)
+
     def test_every_other_day_task(self):
         task = m.Task("Play Drums", self.every_other_freq)
 
