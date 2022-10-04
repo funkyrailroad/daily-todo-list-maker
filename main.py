@@ -37,6 +37,12 @@ class Task:
         return f"Name: {self.name}\nFreq:{self.frequency}"
 
 
+class MonthlyTask(Task):
+
+    def __init__(self, name, day_number):
+        return super().__init__(name, f.MonthlyFrequency(day_number))
+
+
 class DailyTask(Task):
 
     def __init__(self, name):
